@@ -26,7 +26,7 @@ pipeline{
             echo "success block"
         }
         failure{
-            "failiure block"
+            echo "failiure block"
         }
     }
 }
