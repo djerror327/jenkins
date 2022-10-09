@@ -4,6 +4,11 @@ def buid() {
 }
 
 def test() {
+    when{
+            expression{
+                BRANCH_NAME == "dev"
+            }
+    }
     echo 'testing application'
 }
 
