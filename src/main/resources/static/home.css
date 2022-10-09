@@ -1,0 +1,46 @@
+body {
+    background-image: url("./img/backround.jpg");
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tile {
+    float: left;
+    right: 20cm;
+    background-color: #171717;
+    opacity: 0.9;
+    padding: .2cm;
+    width: 6cm;
+    height: 6cm;
+    border: thin #171717 solid;
+    color: #fafafa;
+    margin: .1cm;
+    font-size: small;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: nowrap;
+    font-size: medium;
+    text-align: center;
+}
+
+.tileimage {
+    padding-top: 20%;
+    width: 50%;
+    opacity: 1.0;
+}
+
+#content {
+    padding-top: 4%;
+    padding-left: 20%;
+}
+
+#header {
+    /* padding-left: 40%; */
+    font-weight: bolder;
+    font-size: 1.5cm;
+    color: #fafafa;
+    /* opacity: 0.8; */
+}

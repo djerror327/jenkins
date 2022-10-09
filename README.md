@@ -1,2 +1,2 @@
-# jenkins
-jenkins pipeline learning
+# SYSHub
+Central web hub to monitor several systems 
