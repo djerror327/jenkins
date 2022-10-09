@@ -9,7 +9,7 @@ pipeline{
     }
     parameters{
         string(name: "Deployment settings", defaultValue: "", description: "setting the Deployment String test")
-        choice(name:"Version" choices: ["1.0.0","2.0.0","3.0.0"],description: "")
+        choice(name:"Version", choices: ["1.0.0","2.0.0","3.0.0"],description: "")
         booleanParam(name: "executeTest", defaultValue: true, descriptrion: "check testing")
     }
     stages{
