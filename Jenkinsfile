@@ -26,9 +26,7 @@ pipeline{
                 echo "Deploying application"
                 echo "${VERSION}"
                 // sh("echo ${SERVER_CREDENTIAL}")
-                withCredentials([
-                    usernamePassword(credentials:'cloud-server',usernameVeriable: USER, passwordVariable: PWD)
-                ]){
+                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'cloud-server', usernameVariable: 'USER', passwordVariable: 'PASSWD']]) {
                     sh "echo ${USER}"
                 }
            }
