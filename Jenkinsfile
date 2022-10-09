@@ -25,7 +25,7 @@ pipeline{
            steps{
                 echo "Deploying application"
                 echo "${VERSION}"
-                echo "${SERVER_CREDENTIAL}"
+                sh  (" echo ${SERVER_CREDENTIAL}")
            }
         }
     }
