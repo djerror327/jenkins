@@ -4,6 +4,9 @@ pipeline{
         VERSION="1.0.0"
         // SERVER_CREDENTIAL=credentials('cloud-server')
     }
+    tools{
+        maven "Maven"
+    }
     stages{
         stage("build"){
             steps{
@@ -18,6 +21,7 @@ pipeline{
             }
             steps{
                 echo "testing application"
+                sh "mvn -v"
             }
             
         }
