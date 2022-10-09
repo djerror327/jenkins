@@ -18,4 +18,15 @@ pipeline{
            }
         }
     }
+    post{
+        always{
+            echo "always block"
+        }
+        success{
+            echo "success block"
+        }
+        failure{
+            "failiure block"
+        }
+    }
 }
