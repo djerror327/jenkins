@@ -1,3 +1,4 @@
+def gv
 pipeline{
     agent any
     environment{
@@ -13,10 +14,12 @@ pipeline{
         booleanParam(name: "executeTest", defaultValue: true, description: "check testing")
     }
     stages{
+        stage("init"){
+            gv=load("script.groovy")
+        }
         stage("build"){
             steps{
-                echo "Bulding components"
-                 sh "mvn -v"
+                gv.buid()
             }
         }
         stage("Test"){
@@ -26,7 +29,7 @@ pipeline{
                 }
             }
             steps{
-                echo "testing application"
+                gv.test()
             }
             
         }
@@ -37,13 +40,12 @@ pipeline{
                 }
             }
             steps{
-                echo "Post test running on ${params.Version}"
+                gv.post_test()
             }
         }
         stage("Deploy"){
            steps{
-                echo "Deploying application"
-                echo "${VERSION}"
+                gv.deploy()
                 // sh("echo ${SERVER_CREDENTIAL}")
                  withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'cloud-server', usernameVariable: 'USER', passwordVariable: 'PASSWD']]) {
                     sh "echo ${USER} ${PASSWD}"
