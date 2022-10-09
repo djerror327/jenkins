@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    environment{
+        VERSION="1.0.0"
+        SERVER_CREDENTIAL=credentials('cloud-server')
+    }
     stages{
         stage("build"){
             steps{
@@ -20,6 +24,8 @@ pipeline{
         stage("Deploy"){
            steps{
                 echo "Deploying application"
+                echo "${VERSION}"
+                echo "${SERVER_CREDENTIAL}"
            }
         }
     }
