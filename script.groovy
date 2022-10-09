@@ -14,6 +14,9 @@ def  post_test() {
 def deploy() {
     echo 'Deploying application'
     echo "${VERSION}"
+    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'cloud-server', usernameVariable: 'USER', passwordVariable: 'PASSWD']]) {
+        sh "echo ${USER} ${PASSWD}"
+    }
 }
 
 return this

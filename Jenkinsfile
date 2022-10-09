@@ -59,9 +59,7 @@ pipeline{
                     gv.deploy()
                 }
                 // sh("echo ${SERVER_CREDENTIAL}")
-                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'cloud-server', usernameVariable: 'USER', passwordVariable: 'PASSWD']]) {
-                    sh "echo ${USER} ${PASSWD}"
-                }
+                
            }
         }
     }
