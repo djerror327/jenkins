@@ -11,6 +11,7 @@ pipeline{
         stage("build"){
             steps{
                 echo "Bulding components"
+                 sh "mvn -v"
             }
         }
         stage("Test"){
@@ -21,7 +22,6 @@ pipeline{
             }
             steps{
                 echo "testing application"
-                sh "mvn -v"
             }
             
         }
