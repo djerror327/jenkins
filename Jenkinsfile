@@ -15,11 +15,17 @@ pipeline{
     }
     stages{
         stage("init"){
-            gv = load "script.groovy"
+            steps{
+                script{
+                    gv = load "script.groovy"
+                }
+            }
         }
         stage("build"){
             steps{
-                gv.buid()
+                script{
+                    gv.buid()
+                }
             }
         }
         stage("Test"){
@@ -29,7 +35,9 @@ pipeline{
                 }
             }
             steps{
-                gv.test()
+                script{
+                    gv.test()
+                }
             }
             
         }
@@ -40,12 +48,16 @@ pipeline{
                 }
             }
             steps{
-                gv.post_test()
+                script{
+                    gv.post_test()
+                }
             }
         }
         stage("Deploy"){
            steps{
-                gv.deploy()
+                script{
+                    gv.deploy()
+                }
                 // sh("echo ${SERVER_CREDENTIAL}")
                  withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'cloud-server', usernameVariable: 'USER', passwordVariable: 'PASSWD']]) {
                     sh "echo ${USER} ${PASSWD}"
