@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         VERSION="1.0.0"
-        SERVER_CREDENTIAL=credentials('cloud-server')
+        // SERVER_CREDENTIAL=credentials('cloud-server')
     }
     stages{
         stage("build"){
@@ -25,7 +25,12 @@ pipeline{
            steps{
                 echo "Deploying application"
                 echo "${VERSION}"
-                sh("echo ${SERVER_CREDENTIAL}")
+                // sh("echo ${SERVER_CREDENTIAL}")
+                withCredentials([
+                    usernamePassword(credentials:'cloud-server',usernameVeriable: USER, passwordVariable: PWD)
+                ]){
+                    sh "echo ${USER}"
+                }
            }
         }
     }
